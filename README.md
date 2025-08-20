@@ -2,7 +2,7 @@
 
 This is a Next.js application that provides a powerful lead-generation tool for businesses. It features a web form where potential clients can submit their business details. The application then scrapes the client's website, uses. Opbneeds to be updated to display the new form. Replace the contents of the existing app/page.tsx file with the code from my version.
 
-Modified File: app/page.tsx
+Modified File: ```app/page.tsx```
 
 Step 4: Set Up Environment Variables (Very Important)
 You will need to create a .env.local file in the root of the main project. Do not share my .env.local file directly, as it contains secret keys.
