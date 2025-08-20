@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Business Report Generator
 
-## Getting Started
+This is a Next.js application that provides a powerful lead-generation tool for businesses. It features a web form where potential clients can submit their business details. The application then scrapes the client's website, uses. Opbneeds to be updated to display the new form. Replace the contents of the existing app/page.tsx file with the code from my version.
 
-First, run the development server:
+Modified File: app/page.tsx
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Step 4: Set Up Environment Variables (Very Important)
+You will need to create a .env.local file in the root of the main project. Do not share my .env.local file directly, as it contains secret keys.
+
+The new file must contain these two variables with the correct keys/values:
+
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+NEXT_PUBLIC_FIREBASE_CONFIG={"apiKey":"...","authDomain":"...","projectId":"..."}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You will need to get these values from the Google AI Studio and the Firebase project console.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once these steps are complete, restart the Next.js development server, and the feature should be fully integrated and working.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Project Files
+This feature is composed of the following key files:
 
-## Learn More
+```app/api/generate-report/route.ts```: The core backend logic. Handles web scraping, the call to the Gemini API, PDF generation, and saving data to Firestore.
 
-To learn more about Next.js, take a look at the following resources:
+```app/components/reportForm.tsx```: The main logic component for the form. It manages state, validation, and handles the form submission.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```app/ui/ReportFormUI.tsx```: The presentational component for the form. Contains all the styled JSX and receives its data and functions as props.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```app/lib/firebase.ts```: Handles the initialization and configuration of the Firebase SDK.
 
-## Deploy on Vercel
+```app/page.tsx```: The homepage, updated to display the ReportForm component.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```.env.local```: (Must be created manually) Stores all the secret API keys and configuration variables.
